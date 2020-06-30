@@ -32,7 +32,7 @@ namespace BGTracker.Data
             return new ApplicationDbContext();
         }
 
-
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
