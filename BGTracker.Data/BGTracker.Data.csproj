@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202006300147031_UserTable.Designer.cs">
       <DependentUpon>202006300147031_UserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006302329244_addedGUID.cs" />
+    <Compile Include="Migrations\202006302329244_addedGUID.Designer.cs">
+      <DependentUpon>202006302329244_addedGUID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006300147031_UserTable.resx">
       <DependentUpon>202006300147031_UserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006302329244_addedGUID.resx">
+      <DependentUpon>202006302329244_addedGUID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

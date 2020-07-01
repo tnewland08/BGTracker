@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BGTracker.Data\BGTracker.Data.csproj">
+      <Project>{00885623-bbee-4a98-ad84-dc62191b4241}</Project>
+      <Name>BGTracker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BGTracker.Models\BGTracker.Models.csproj">
+      <Project>{8505add3-5a3d-47aa-98dc-45b5da6109a4}</Project>
+      <Name>BGTracker.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

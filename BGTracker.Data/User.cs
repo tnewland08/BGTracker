@@ -13,6 +13,9 @@ namespace BGTracker.Data
         public int UserId { get; set; }
 
         [Required]
+        public Guid OwnerId { get; set; }
+
+        [Required]
         [Display(Name ="First Name")]
         public string FirstName { get; set; }
 
@@ -21,7 +24,7 @@ namespace BGTracker.Data
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name ="Date of Birth")]
+        [Display(Name ="Date of Birth (MM/DD/YYYY")]
         public DateTime Birthday { get; set; }
 
         [Required]
