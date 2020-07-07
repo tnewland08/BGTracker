@@ -115,11 +115,11 @@ namespace BGTracker.WebMVC.Controllers
         // POST: User/Delete/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteUser(int id)
+        public ActionResult DeleteUserProfile(int id)
         {
             var service = CreateUserService();
 
-            service.CreateUser(id);
+            service.DeleteUser(id);
 
             TempData["SaveResult"] = "User profile was deleted.";
 
