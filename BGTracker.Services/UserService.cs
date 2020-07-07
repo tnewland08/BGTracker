@@ -51,6 +51,7 @@ namespace BGTracker.Services
                             u =>
                                 new UserListItem
                                 {
+                                    UserId = u.UserId,
                                     FirstName = u.FirstName,
                                     LastName = u.LastName,
                                     TypeOne = u.TypeOne,
@@ -59,6 +60,29 @@ namespace BGTracker.Services
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        public UserDetail GetUserById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                var user =
+                    ctx
+                        .Users
+                        .Single(u => u.UserId == id && u.OwnerId == _userId);
+                return
+                    new UserDetail
+                    {
+                        UserId = user.UserId,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        Birthday = user.Birthday,
+                        Diagnosed = user.Diagnosed,
+                        TypeOne = user.TypeOne,
+                        TypeTwo = user.TypeTwo
+                    };
             }
         }
     }

@@ -9,6 +9,7 @@ namespace BGTracker.Models.UserModels
 {
     public class UserEdit
     {
+        public int UserId { get; set; }
         [Required]
         public string FirstName { get; set; }
 

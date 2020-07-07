@@ -48,6 +48,15 @@ namespace BGTracker.WebMVC.Controllers
             return View(user);
         }
 
+        // GET: User/Detail
+        public ActionResult Detail(int id)
+        {
+            var svc = CreateUserService();
+            var user = svc.GetUserById(id);
+
+            return View(user);
+        }
+
 
         // Helper Methods
         public UserService CreateUserService()
