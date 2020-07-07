@@ -85,5 +85,42 @@ namespace BGTracker.Services
                     };
             }
         }
+
+        public bool UpdateUser(UserEdit user)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Users
+                        .Single(u => u.UserId == user.UserId && u.OwnerId == _userId);
+
+                entity.UserId = user.UserId;
+                entity.FirstName = user.FirstName;
+                entity.LastName = user.LastName;
+                entity.Birthday = user.Birthday;
+                entity.Diagnosed = user.Diagnosed;
+                entity.TypeOne = user.TypeOne;
+                entity.TypeTwo = user.TypeTwo;
+                entity.ModifiedUtc = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteUser(int userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user =
+                    ctx
+                        .Users
+                        .Single(u => u.UserId == userId && u.OwnerId == _userId);
+
+                ctx.Users.Remove(user);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
