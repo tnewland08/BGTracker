@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GlucoseTrackerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -240,6 +241,11 @@
     <Content Include="Views\User\Detail.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\GlucoseTracker\Create.cshtml" />
+    <Content Include="Views\GlucoseTracker\Detail.cshtml" />
+    <Content Include="Views\GlucoseTracker\Edit.cshtml" />
+    <Content Include="Views\GlucoseTracker\Index.cshtml" />
+    <Content Include="Views\GlucoseTracker\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
