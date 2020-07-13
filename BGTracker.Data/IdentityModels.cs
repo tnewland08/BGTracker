@@ -34,6 +34,8 @@ namespace BGTracker.Data
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<GlucoseTracker> Glucose { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

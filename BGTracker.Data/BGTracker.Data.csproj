@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlucoseTracker.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202006300046091_InitialCreate.cs" />
     <Compile Include="Migrations\202006300046091_InitialCreate.Designer.cs">
@@ -66,6 +67,14 @@
     <Compile Include="Migrations\202006302329244_addedGUID.cs" />
     <Compile Include="Migrations\202006302329244_addedGUID.Designer.cs">
       <DependentUpon>202006302329244_addedGUID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007100203492_addedGlucoseTracker.cs" />
+    <Compile Include="Migrations\202007100203492_addedGlucoseTracker.Designer.cs">
+      <DependentUpon>202007100203492_addedGlucoseTracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007132219138_removedGlucoseTrackerForeignKey.cs" />
+    <Compile Include="Migrations\202007132219138_removedGlucoseTrackerForeignKey.Designer.cs">
+      <DependentUpon>202007132219138_removedGlucoseTrackerForeignKey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006302329244_addedGUID.resx">
       <DependentUpon>202006302329244_addedGUID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007100203492_addedGlucoseTracker.resx">
+      <DependentUpon>202007100203492_addedGlucoseTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007132219138_removedGlucoseTrackerForeignKey.resx">
+      <DependentUpon>202007132219138_removedGlucoseTrackerForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
