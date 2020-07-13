@@ -94,7 +94,7 @@ namespace BGTracker.WebMVC.Controllers
 
             if (service.UpdateUser(user))
             {
-                TempData["SaveResult"] = "Your profile was not updated.";
+                TempData["SaveResult"] = "Your profile was updated.";
                 return RedirectToAction("Index");
             }
 
