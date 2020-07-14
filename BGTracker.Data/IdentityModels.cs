@@ -33,8 +33,8 @@ namespace BGTracker.Data
         }
 
         public DbSet<User> Users { get; set; }
-
         public DbSet<GlucoseTracker> Glucose { get; set; }
+        public DbSet<FoodAndDrink> FoodAndDrinks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodAndDrinkModels\FoodAndDrinkCreate.cs" />
+    <Compile Include="FoodAndDrinkModels\FoodAndDrinkDetail.cs" />
+    <Compile Include="FoodAndDrinkModels\FoodAndDrinkEdit.cs" />
+    <Compile Include="FoodAndDrinkModels\FoodAndDrinkListItem.cs" />
     <Compile Include="GlucoseTrackerModels\GlucoseTrackerCreate.cs" />
     <Compile Include="GlucoseTrackerModels\GlucoseTrackerDetail.cs" />
     <Compile Include="GlucoseTrackerModels\GlucoseTrackerEdit.cs" />
@@ -68,5 +72,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

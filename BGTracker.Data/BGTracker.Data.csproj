@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodAndDrink.cs" />
     <Compile Include="GlucoseTracker.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202006300046091_InitialCreate.cs" />
