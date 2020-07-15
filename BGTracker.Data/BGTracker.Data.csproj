@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202007132219138_removedGlucoseTrackerForeignKey.Designer.cs">
       <DependentUpon>202007132219138_removedGlucoseTrackerForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007150309460_migration.cs" />
+    <Compile Include="Migrations\202007150309460_migration.Designer.cs">
+      <DependentUpon>202007150309460_migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007132219138_removedGlucoseTrackerForeignKey.resx">
       <DependentUpon>202007132219138_removedGlucoseTrackerForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150309460_migration.resx">
+      <DependentUpon>202007150309460_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -247,10 +247,14 @@
     <Content Include="Views\GlucoseTracker\Edit.cshtml" />
     <Content Include="Views\GlucoseTracker\Index.cshtml" />
     <Content Include="Views\GlucoseTracker\Delete.cshtml" />
+    <Content Include="Views\FoodAndDrink\Index.cshtml" />
+    <Content Include="Views\FoodAndDrink\Create.cshtml" />
+    <Content Include="Views\FoodAndDrink\Detail.cshtml" />
+    <Content Include="Views\FoodAndDrink\Edit.cshtml" />
+    <Content Include="Views\FoodAndDrink\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\FoodAndDrink\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
