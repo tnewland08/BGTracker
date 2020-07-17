@@ -7,13 +7,13 @@ namespace BGTracker.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class removedGlucoseTrackerForeignKey : IMigrationMetadata
+    public sealed partial class addforeignkey : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedGlucoseTrackerForeignKey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addforeignkey));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007132219138_removedGlucoseTrackerForeignKey"; }
+            get { return "202007170300294_addforeignkey"; }
         }
         
         string IMigrationMetadata.Source

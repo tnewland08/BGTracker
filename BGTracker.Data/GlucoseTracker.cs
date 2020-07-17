@@ -10,14 +10,13 @@ namespace BGTracker.Data
 {
     public class GlucoseTracker
     {
-        [Key]
-        public int TrackerId { get; set; }
-
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
 
         public virtual User User { get; set; }
 
+        [Key]
+        public int TrackerId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
