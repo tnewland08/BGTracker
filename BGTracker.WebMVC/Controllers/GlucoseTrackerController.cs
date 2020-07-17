@@ -15,11 +15,11 @@ namespace BGTracker.WebMVC.Controllers
         // GET: GlucoseTracker/Index
         public ActionResult Index()
         {
-            var trackerId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GlucoseTrackerService(trackerId);
-            var tracker = service.GetGlucoseTracker();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GlucoseTrackerService(userId);
+            var model = service.GetGlucoseTracker();
 
-            return View(tracker);
+            return View(model);
         }
 
         // GET: GlucoseTracker/Create
@@ -31,13 +31,13 @@ namespace BGTracker.WebMVC.Controllers
         // POST: GlucoseTracker/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(GlucoseTrackerCreate glucose)
+        public ActionResult Create(GlucoseTrackerCreate model)
         {
-            if (!ModelState.IsValid) return View(glucose);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateGlucoseTrackerService();
 
-            if (service.CreateGlucoseTracker(glucose))
+            if (service.CreateGlucoseTracker(model))
             {
                 TempData["SaveResult"] = "Data has been added to your tracker";
                 return RedirectToAction("Index");
@@ -45,16 +45,16 @@ namespace BGTracker.WebMVC.Controllers
 
             ModelState.AddModelError("", "Your data could not be saved.");
 
-            return View(glucose);
+            return View(model);
         }
 
         // GET: GlucoseTracker/Detail/{id}
         public ActionResult Detail(int id)
         {
             var svc = CreateGlucoseTrackerService();
-            var tracker = svc.GetGlucoseTrackerById(id);
+            var model = svc.GetGlucoseTrackerById(id);
 
-            return View(tracker);
+            return View(model);
         }
 
         // GET: GlucoseTracker/Edit/{id}
@@ -62,7 +62,7 @@ namespace BGTracker.WebMVC.Controllers
         {
             var service = CreateGlucoseTrackerService();
             var detail = service.GetGlucoseTrackerById(id);
-            var tracker =
+            var model =
                 new GlucoseTrackerEdit
                 {
                     TrackerId = detail.TrackerId,
@@ -75,32 +75,32 @@ namespace BGTracker.WebMVC.Controllers
                     TimeOfDose = detail.TimeOfDose
                 };
 
-            return View(tracker);
+            return View(model);
         }
 
         // POST: GlucoseTracker/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, GlucoseTrackerEdit tracker)
+        public ActionResult Edit(int id, GlucoseTrackerEdit model)
         {
-            if (!ModelState.IsValid) return View(tracker);
+            if (!ModelState.IsValid) return View(model);
 
-            if (tracker.TrackerId != id)
+            if (model.TrackerId != id)
             {
                 ModelState.AddModelError("", "Invalid Id");
-                return View(tracker);
+                return View(model);
             }
 
             var service = CreateGlucoseTrackerService();
 
-            if (service.UpdateGlucoseTracker(tracker))
+            if (service.UpdateGlucoseTracker(model))
             {
                 TempData["SaveResult"] = "Your data was not updated.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Your data could not be updated.");
-            return View(tracker);
+            return View(model);
         }
 
         // GET: GlucoseTracker/Delete/{id}
@@ -108,9 +108,9 @@ namespace BGTracker.WebMVC.Controllers
         public ActionResult Delete(int id)
         {
             var svc = CreateGlucoseTrackerService();
-            var tracker = svc.GetGlucoseTrackerById(id);
+            var model = svc.GetGlucoseTrackerById(id);
 
-            return View(tracker);
+            return View(model);
         }
 
         // POST: GlucoseTracker/Delete/{id}
@@ -130,8 +130,8 @@ namespace BGTracker.WebMVC.Controllers
         // Helper Methods
         public GlucoseTrackerService CreateGlucoseTrackerService()
         {
-            var trackerId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GlucoseTrackerService(trackerId);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GlucoseTrackerService(userId);
             return service;
         }
     }

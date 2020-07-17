@@ -15,11 +15,11 @@ namespace BGTracker.WebMVC.Controllers
         // GET: FoodAndDrink/Index
         public ActionResult Index()
         {
-            var foodId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FoodAndDrinkService(foodId);
-            var food = service.GetFoodAndDrinkList();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FoodAndDrinkService(userId);
+            var model = service.GetFoodAndDrinkList();
 
-            return View(food);
+            return View(model);
         }
 
         // GET: FoodAndDrink/Create
@@ -31,21 +31,21 @@ namespace BGTracker.WebMVC.Controllers
         // POST: FoodAndDrink/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FoodAndDrinkCreate item)
+        public ActionResult Create(FoodAndDrinkCreate model)
         {
-            if (!ModelState.IsValid) return View(item);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateFoodAndDrinkService();
 
-            if (service.CreateFoodAndDrinkItem(item))
+            if (service.CreateFoodAndDrinkItem(model))
             {
-                TempData["Save Result"] = "Item added.";
+                TempData["SaveResult"] = "Item added.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Item could not be saved.");
 
-            return View(item);
+            return View(model);
         }
 
         // GET: FoodAndDrink/Detail/{id}
@@ -62,7 +62,7 @@ namespace BGTracker.WebMVC.Controllers
         {
             var service = CreateFoodAndDrinkService();
             var detail = service.GetFoodAndDrinkById(id);
-            var item =
+            var model =
                 new FoodAndDrinkEdit
                 {
                     FoodId = detail.FoodId,
@@ -75,32 +75,32 @@ namespace BGTracker.WebMVC.Controllers
                     Favorite = detail.Favorite
                 };
 
-            return View(item);
+            return View(model);
         }
 
         // POST: FoodAndDrink/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, FoodAndDrinkEdit item)
+        public ActionResult Edit(int id, FoodAndDrinkEdit model)
         {
-            if (!ModelState.IsValid) return View(item);
+            if (!ModelState.IsValid) return View(model);
 
-            if (item.FoodId != id)
+            if (model.FoodId != id)
             {
                 ModelState.AddModelError("", "Invalid Id");
-                return View(item);
+                return View(model);
             }
 
             var service = CreateFoodAndDrinkService();
 
-            if (service.UpdateFoodAndDrinkItem(item))
+            if (service.UpdateFoodAndDrinkItem(model))
             {
                 TempData["SaveResult"] = "Item was not updated.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Item could not be updated.");
-            return View(item);
+            return View(model);
         }
 
         // GET: FoodAndDrink/Delete/{id}
@@ -108,9 +108,9 @@ namespace BGTracker.WebMVC.Controllers
         public ActionResult Delete(int id)
         {
             var svc = CreateFoodAndDrinkService();
-            var item = svc.GetFoodAndDrinkById(id);
+            var model = svc.GetFoodAndDrinkById(id);
 
-            return View(item);
+            return View(model);
         }
 
         // POST: FoodAndDrink/Delete/{id}
@@ -130,8 +130,8 @@ namespace BGTracker.WebMVC.Controllers
         // Helper Methods
         public FoodAndDrinkService CreateFoodAndDrinkService()
         {
-            var foodId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FoodAndDrinkService(foodId);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FoodAndDrinkService(userId);
             return service;
         }
     }

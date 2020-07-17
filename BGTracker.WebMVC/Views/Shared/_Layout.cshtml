@@ -25,11 +25,9 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Profile", "Index", "User")</li>
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <li>@Html.ActionLink("Add Blood Glucos Reading", "Index", "GlucoseTracker")</li>
-                    }
+                        <li>@Html.ActionLink("Add Food or Drink", "Index", "FoodAndDrink")</li>
+                    }                    
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
