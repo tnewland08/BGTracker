@@ -95,7 +95,7 @@ namespace BGTracker.WebMVC.Controllers
 
             if (service.UpdateGlucoseTracker(model))
             {
-                TempData["SaveResult"] = "Your data was not updated.";
+                TempData["SaveResult"] = "Your data was updated.";
                 return RedirectToAction("Index");
             }
 
