@@ -9,7 +9,7 @@ namespace BGTracker.Models.UserModels
 {
     public class UserEdit
     {
-        public int UserId { get; set; }
+        public string Id { get; set; }
         [Required]
         public string FirstName { get; set; }
 
@@ -17,7 +17,7 @@ namespace BGTracker.Models.UserModels
         public string LastName { get; set; }
 
         [Required]
-        public DateTime Birthday { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [Required]
         public int Diagnosed { get; set; }

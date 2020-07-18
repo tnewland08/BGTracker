@@ -9,7 +9,7 @@ namespace BGTracker.Models.UserModels
 {
     public class UserListItem
     {
-        public int UserId { get; set; }
+        public string Id { get; set; }
         [Display(Name ="First Name")]
         public string FirstName { get; set; }
         [Display(Name ="Last Name")]

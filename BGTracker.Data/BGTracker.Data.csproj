@@ -65,9 +65,16 @@
     <Compile Include="Migrations\202007181655064_updatedforeignkey.Designer.cs">
       <DependentUpon>202007181655064_updatedforeignkey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007181749411_updatedapplicationuser.cs" />
+    <Compile Include="Migrations\202007181749411_updatedapplicationuser.Designer.cs">
+      <DependentUpon>202007181749411_updatedapplicationuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007181835229_addedguidtoapplicationuser.cs" />
+    <Compile Include="Migrations\202007181835229_addedguidtoapplicationuser.Designer.cs">
+      <DependentUpon>202007181835229_addedguidtoapplicationuser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,6 +86,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007181655064_updatedforeignkey.resx">
       <DependentUpon>202007181655064_updatedforeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007181749411_updatedapplicationuser.resx">
+      <DependentUpon>202007181749411_updatedapplicationuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007181835229_addedguidtoapplicationuser.resx">
+      <DependentUpon>202007181835229_addedguidtoapplicationuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

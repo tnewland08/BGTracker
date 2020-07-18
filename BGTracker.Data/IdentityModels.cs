@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -11,6 +13,37 @@ namespace BGTracker.Data
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        public Guid OwnerId { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Date of Birth (MM/DD/YYYY")]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        [Display(Name = "Diagnosed since (year):")]
+        public int Diagnosed { get; set; }
+
+        [Required]
+        [Display(Name = "Type 1")]
+        public bool TypeOne { get; set; }
+
+        [Required]
+        [Display(Name = "Type 2")]
+        public bool TypeTwo { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -32,7 +65,7 @@ namespace BGTracker.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<User> Users { get; set; }
+        //public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<GlucoseTracker> Glucose { get; set; }
         public DbSet<FoodAndDrink> FoodAndDrinks { get; set; }
 

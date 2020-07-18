@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BGTracker.WebMVC.Models
@@ -79,6 +80,30 @@ namespace BGTracker.WebMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Date of Birth (MM/DD/YYYY")]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        [Display(Name = "Diagnosed since (year):")]
+        public int Diagnosed { get; set; }
+
+        [Required]
+        [Display(Name = "Type 1")]
+        public bool TypeOne { get; set; }
+
+        [Required]
+        [Display(Name = "Type 2")]
+        public bool TypeTwo { get; set; }
     }
 
     public class ResetPasswordViewModel
