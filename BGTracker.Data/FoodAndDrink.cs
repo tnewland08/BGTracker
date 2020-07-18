@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BGTracker.Data
 {
-    public class GlucoseTracker
+    public class FoodAndDrink
     {
         [ForeignKey(nameof(User))]
         public string Id { get; set; }
@@ -16,41 +16,40 @@ namespace BGTracker.Data
         public virtual ApplicationUser User { get; set; }
 
         [Key]
-        public int TrackerId { get; set; }
+        public int FoodId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
 
         [Required]
-        [Display(Name ="Date (MM/DD/YYYY)")]
-        public DateTime Date { get; set; }
+        public string Item { get; set; }
 
         [Required]
-        [Display(Name ="Blood Glucose")]
-        public int BloodGlucose { get; set; }
+        [Display(Name ="Food")]
+        public bool IsFood { get; set; }
 
         [Required]
-        [Display(Name ="Correction Dose (units)")]
-        public decimal CorrectionDose { get; set; }
+        [Display(Name ="Drink")]
+        public bool IsDrink { get; set; }
 
         [Required]
-        [Display(Name ="Total Carbs")]
-        public int TotalCarbs { get; set; }
+        [Display(Name ="Carbs per Serving")]
+        public int CarbsPerServing { get; set; }
 
         [Required]
-        [Display(Name ="Food Dose (units)")]
-        public decimal FoodDose { get; set; }
+        [Display(Name ="Serving Size")]
+        public string ServingSize { get; set; }
 
         [Required]
-        [Display(Name ="Insulin Dose (total units)")]
-        public decimal InsulinDose { get; set; }
+        [Display(Name ="Fast Acting Carb")]
+        public bool FastActingCarb { get; set; }
 
         [Required]
-        [Display(Name ="Time")]
-        public TimeSpan TimeOfDose { get; set; }
+        public bool Favorite { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+
     }
 }

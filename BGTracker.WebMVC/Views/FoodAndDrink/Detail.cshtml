@@ -1,0 +1,98 @@
+﻿@model BGTracker.Models.FoodAndDrinkModels.FoodAndDrinkDetail
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>FoodAndDrinkDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDrink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDrink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarbsPerServing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarbsPerServing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServingSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServingSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FastActingCarb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FastActingCarb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Favorite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Favorite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FoodId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

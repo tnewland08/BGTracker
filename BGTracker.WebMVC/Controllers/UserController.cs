@@ -17,9 +17,9 @@ namespace BGTracker.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new UserService(userId);
-            var user = service.GetUser();
+            var model = service.GetUser();
             
-            return View(user);
+            return View(model);
         }
 
         // GET: User/Create
@@ -31,13 +31,13 @@ namespace BGTracker.WebMVC.Controllers
         // POST: User/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserCreate user)
+        public ActionResult Create(UserCreate model)
         {
-            if (!ModelState.IsValid) return View(user);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateUserService();
 
-            if (service.CreateUser(user))
+            if (service.CreateUser(model))
             {
                 TempData["SaveResult"] = "Your profile was created.";
                 return RedirectToAction("Index");
@@ -45,16 +45,16 @@ namespace BGTracker.WebMVC.Controllers
 
             ModelState.AddModelError("", "Profile could not be created.");
 
-            return View(user);
+            return View(model);
         }
 
         // GET: User/Detail/{id}
         public ActionResult Detail(int id)
         {
             var svc = CreateUserService();
-            var user = svc.GetUserById(id);
+            var model = svc.GetUserById(id);
 
-            return View(user);
+            return View(model);
         }
 
         //GET: User/Edit/{id}
@@ -62,7 +62,7 @@ namespace BGTracker.WebMVC.Controllers
         {
             var service = CreateUserService();
             var detail = service.GetUserById(id);
-            var user =
+            var model =
                 new UserEdit
                 {
                     UserId = detail.UserId,
@@ -74,32 +74,32 @@ namespace BGTracker.WebMVC.Controllers
                     TypeTwo = detail.TypeTwo
                 };
 
-            return View(user);
+            return View(model);
         }
 
         // POST: User/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, UserEdit user)
+        public ActionResult Edit(int id, UserEdit model)
         {
-            if (!ModelState.IsValid) return View(user);
+            if (!ModelState.IsValid) return View(model);
 
-            if (user.UserId != id)
+            if (model.UserId != id)
             {
                 ModelState.AddModelError("", "Id does not match User profile");
-                return View(user);
+                return View(model);
             }
 
             var service = CreateUserService();
 
-            if (service.UpdateUser(user))
+            if (service.UpdateUser(model))
             {
                 TempData["SaveResult"] = "Your profile was updated.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Your profile could not be updated.");
-            return View(user);
+            return View(model);
         }
 
         // GET: User/Delete/{id}
@@ -107,9 +107,9 @@ namespace BGTracker.WebMVC.Controllers
         public ActionResult Delete(int id)
         {
             var svc = CreateUserService();
-            var user = svc.GetUserById(id);
+            var model = svc.GetUserById(id);
 
-            return View(user);
+            return View(model);
         }
 
         // POST: User/Delete/{id}
