@@ -17,28 +17,6 @@ namespace BGTracker.Services
             _userId = userId;
         }
 
-        public bool CreateUser(UserCreate user)
-        {
-            var newUser =
-                new User()
-                {
-                    OwnerId = _userId,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Birthday = user.Birthday,
-                    Diagnosed = user.Diagnosed,
-                    TypeOne = user.TypeOne,
-                    TypeTwo = user.TypeTwo,
-                    CreatedUtc = DateTimeOffset.Now
-                };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Users.Add(newUser);
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
         public IEnumerable<UserListItem> GetUser()
         {
             using (var ctx = new ApplicationDbContext())
@@ -46,16 +24,16 @@ namespace BGTracker.Services
                 var query =
                     ctx
                         .Users
-                        .Where(u => u.OwnerId == _userId)
+                        .Where(a => a.OwnerId == _userId)
                         .Select(
-                            u =>
+                            a =>
                                 new UserListItem
                                 {
-                                    UserId = u.UserId,
-                                    FirstName = u.FirstName,
-                                    LastName = u.LastName,
-                                    TypeOne = u.TypeOne,
-                                    TypeTwo = u.TypeTwo
+                                    Id = a.Id,
+                                    FirstName = a.FirstName,
+                                    LastName = a.LastName,
+                                    TypeOne = a.TypeOne,
+                                    TypeTwo = a.TypeTwo
                                 }
                         );
 
@@ -63,7 +41,7 @@ namespace BGTracker.Services
             }
         }
 
-        public UserDetail GetUserById(int id)
+        public UserDetail GetUserById(string id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -71,14 +49,14 @@ namespace BGTracker.Services
                 var user =
                     ctx
                         .Users
-                        .Single(u => u.UserId == id && u.OwnerId == _userId);
+                        .Single(a => a.Id == id && a.OwnerId == _userId);
                 return
                     new UserDetail
                     {
-                        UserId = user.UserId,
+                        Id = user.Id,
                         FirstName = user.FirstName,
                         LastName = user.LastName,
-                        Birthday = user.Birthday,
+                        BirthDate = user.BirthDate,
                         Diagnosed = user.Diagnosed,
                         TypeOne = user.TypeOne,
                         TypeTwo = user.TypeTwo
@@ -93,12 +71,12 @@ namespace BGTracker.Services
                 var entity =
                     ctx
                         .Users
-                        .Single(u => u.UserId == user.UserId && u.OwnerId == _userId);
+                        .Single(a => a.Id == user.Id && a.OwnerId == _userId);
 
-                entity.UserId = user.UserId;
+                entity.Id = user.Id;
                 entity.FirstName = user.FirstName;
                 entity.LastName = user.LastName;
-                entity.Birthday = user.Birthday;
+                entity.BirthDate = user.BirthDate;
                 entity.Diagnosed = user.Diagnosed;
                 entity.TypeOne = user.TypeOne;
                 entity.TypeTwo = user.TypeTwo;
@@ -108,14 +86,14 @@ namespace BGTracker.Services
             }
         }
 
-        public bool DeleteUser(int userId)
+        public bool DeleteUser(string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var user =
                     ctx
                         .Users
-                        .Single(u => u.UserId == userId && u.OwnerId == _userId);
+                        .Single(u => u.Id == userId && u.OwnerId == _userId);
 
                 ctx.Users.Remove(user);
 
