@@ -153,7 +153,7 @@ namespace BGTracker.WebMVC.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser 
-                { 
+                {
                     UserName = model.Email, 
                     Email = model.Email,
                     FirstName = model.FirstName,

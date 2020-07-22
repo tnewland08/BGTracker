@@ -90,7 +90,7 @@ namespace BGTracker.WebMVC.Models
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Date of Birth (MM/DD/YYYY")]
+        [Display(Name = "Date of Birth (MM/DD/YYYY)")]
         public DateTime BirthDate { get; set; }
 
         [Required]

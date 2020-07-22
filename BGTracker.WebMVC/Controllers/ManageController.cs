@@ -66,6 +66,7 @@ namespace BGTracker.WebMVC.Controllers
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
+                Id = userId,
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),

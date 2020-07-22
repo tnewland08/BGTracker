@@ -73,6 +73,14 @@
     <Compile Include="Migrations\202007181835229_addedguidtoapplicationuser.Designer.cs">
       <DependentUpon>202007181835229_addedguidtoapplicationuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007211500223_update.cs" />
+    <Compile Include="Migrations\202007211500223_update.Designer.cs">
+      <DependentUpon>202007211500223_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007212142499_update2.cs" />
+    <Compile Include="Migrations\202007212142499_update2.Designer.cs">
+      <DependentUpon>202007212142499_update2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007181835229_addedguidtoapplicationuser.resx">
       <DependentUpon>202007181835229_addedguidtoapplicationuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007211500223_update.resx">
+      <DependentUpon>202007211500223_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007212142499_update2.resx">
+      <DependentUpon>202007212142499_update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

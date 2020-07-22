@@ -19,7 +19,7 @@ namespace BGTracker.Models.UserModels
 
         [Required]
         [Display(Name = "Date of Birth (MM/DD/YYY)")]
-        public DateTime Birthday { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [Required]
         [Display(Name = "Diagnosed since (year)")]

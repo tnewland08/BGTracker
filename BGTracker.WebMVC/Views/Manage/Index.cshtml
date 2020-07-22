@@ -10,7 +10,7 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        @Html.ActionLink("View Profile", "Index", "Account")
+        @Html.ActionLink("View Profile", "Detail", "User", new { id = Model.Id}, null)
         <hr />
         <dt>Password:</dt>
         <dd>
