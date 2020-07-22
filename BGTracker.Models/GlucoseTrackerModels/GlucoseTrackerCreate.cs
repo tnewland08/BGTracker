@@ -9,6 +9,8 @@ namespace BGTracker.Models.GlucoseTrackerModels
 {
     public class GlucoseTrackerCreate
     {
+        public string Id { get; set; }
+
         [Required]
         [Display(Name = "Date (MM/DD/YYYY)")]
         public DateTime Date { get; set; }

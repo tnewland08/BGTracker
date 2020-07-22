@@ -30,39 +30,54 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.Diagnosed, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.Diagnosed, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Diagnosed, new { @class = "form-control" })
+            @Html.EditorFor(model => model.Diagnosed, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Diagnosed, "", new { @class = "text-danger" })
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.TypeOne, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.TypeOne, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.CheckBoxFor(m => m.TypeOne, new { @class = "form-control" })
+            <div class="checkbox">
+                @Html.EditorFor(model => model.TypeOne)
+                @Html.ValidationMessageFor(model => model.TypeOne, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(m => m.TypeTwo, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.TypeTwo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.CheckBoxFor(m => m.TypeTwo, new { @class = "form-control" })
+            <div class="checkbox">
+                @Html.EditorFor(model => model.TypeTwo)
+                @Html.ValidationMessageFor(model => model.TypeTwo, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
     <div class="form-group">

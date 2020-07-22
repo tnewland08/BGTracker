@@ -24,7 +24,7 @@ namespace BGTracker.Services
                 var query =
                     ctx
                         .Users
-                        .Where(a => a.OwnerId == _userId)
+                        .Where(a => a.Id == _userId.ToString())
                         .Select(
                             a =>
                                 new UserListItem
@@ -49,7 +49,7 @@ namespace BGTracker.Services
                 var user =
                     ctx
                         .Users
-                        .Single(a => a.Id == id && a.OwnerId == _userId);
+                        .Single(a => a.Id == id && a.Id == _userId.ToString());
                 return
                     new UserDetail
                     {
@@ -71,7 +71,7 @@ namespace BGTracker.Services
                 var entity =
                     ctx
                         .Users
-                        .Single(a => a.Id == user.Id && a.OwnerId == _userId);
+                        .Single(a => a.Id == user.Id && a.Id == _userId.ToString());
 
                 entity.Id = user.Id;
                 entity.FirstName = user.FirstName;
@@ -93,7 +93,7 @@ namespace BGTracker.Services
                 var user =
                     ctx
                         .Users
-                        .Single(u => u.Id == userId && u.OwnerId == _userId);
+                        .Single(a => a.Id == userId && a.Id == _userId.ToString());
 
                 ctx.Users.Remove(user);
 

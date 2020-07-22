@@ -14,9 +14,6 @@ namespace BGTracker.Data
     public class ApplicationUser : IdentityUser
     {
         [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -65,7 +62,7 @@ namespace BGTracker.Data
             return new ApplicationDbContext();
         }
 
-        //public DbSet<ApplicationUser> Users { get; set; }
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<GlucoseTracker> Glucose { get; set; }
         public DbSet<FoodAndDrink> FoodAndDrinks { get; set; }
 

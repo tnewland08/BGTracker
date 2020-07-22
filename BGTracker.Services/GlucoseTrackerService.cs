@@ -22,6 +22,7 @@ namespace BGTracker.Services
             var newGlucose =
                 new GlucoseTracker()
                 {
+                    Id = glucose.Id,
                     OwnerId = _userid,
                     Date = glucose.Date,
                     BloodGlucose = glucose.BloodGlucose,
