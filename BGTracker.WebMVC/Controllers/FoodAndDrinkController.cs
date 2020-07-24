@@ -65,7 +65,7 @@ namespace BGTracker.WebMVC.Controllers
             var model =
                 new FoodAndDrinkEdit
                 {
-                    FoodId = detail.FoodId,
+                    ItemId = detail.ItemId,
                     Item = detail.Item,
                     IsFood = detail.IsFood,
                     IsDrink = detail.IsDrink,
@@ -85,7 +85,7 @@ namespace BGTracker.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.FoodId != id)
+            if (model.ItemId != id)
             {
                 ModelState.AddModelError("", "Invalid Id");
                 return View(model);

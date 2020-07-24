@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202007212142499_update2.Designer.cs">
       <DependentUpon>202007212142499_update2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007240035091_foodidtoitemid.cs" />
+    <Compile Include="Migrations\202007240035091_foodidtoitemid.Designer.cs">
+      <DependentUpon>202007240035091_foodidtoitemid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007212142499_update2.resx">
       <DependentUpon>202007212142499_update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007240035091_foodidtoitemid.resx">
+      <DependentUpon>202007240035091_foodidtoitemid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

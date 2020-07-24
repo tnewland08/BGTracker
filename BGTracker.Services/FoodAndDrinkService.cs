@@ -24,6 +24,7 @@ namespace BGTracker.Services
             var newItem =
                 new FoodAndDrink()
                 {
+                    Id = _userid.ToString(),
                     OwnerId = _userid,
                     Item = item.Item,
                     IsFood = item.IsFood,
@@ -54,7 +55,7 @@ namespace BGTracker.Services
                             f =>
                                 new FoodAndDrinkListItem
                                 {
-                                    FoodId = f.FoodId,
+                                    ItemId = f.ItemId,
                                     Item = f.Item,
                                     CarbsPerServing = f.CarbsPerServing,
                                     ServingSize = f.ServingSize
@@ -65,18 +66,18 @@ namespace BGTracker.Services
             }
         }
 
-        public FoodAndDrinkDetail GetFoodAndDrinkById(int foodId)
+        public FoodAndDrinkDetail GetFoodAndDrinkById(int itemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var food =
                     ctx
                         .FoodAndDrinks
-                        .Single(f => f.FoodId == foodId && f.OwnerId == _userid);
+                        .Single(f => f.ItemId == itemId && f.OwnerId == _userid);
                 return
                     new FoodAndDrinkDetail
                     {
-                        FoodId = food.FoodId,
+                        ItemId = food.ItemId,
                         Item = food.Item,
                         IsFood = food.IsFood,
                         IsDrink = food.IsDrink,
@@ -97,9 +98,9 @@ namespace BGTracker.Services
                 var entity =
                     ctx
                         .FoodAndDrinks
-                        .Single(f => f.FoodId == item.FoodId && f.OwnerId == _userid);
+                        .Single(f => f.ItemId == item.ItemId && f.OwnerId == _userid);
 
-                entity.FoodId = item.FoodId;
+                entity.ItemId = item.ItemId;
                 entity.Item = item.Item;
                 entity.IsFood = item.IsFood;
                 entity.IsDrink = item.IsDrink;
@@ -113,14 +114,14 @@ namespace BGTracker.Services
             }
         }
 
-        public bool DeleteFoodAndDrinkItem(int foodId)
+        public bool DeleteFoodAndDrinkItem(int itemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var food =
                     ctx
                         .FoodAndDrinks
-                        .Single(f => f.FoodId == foodId && f.OwnerId == _userid);
+                        .Single(f => f.ItemId == itemId && f.OwnerId == _userid);
 
                 ctx.FoodAndDrinks.Remove(food);
 
