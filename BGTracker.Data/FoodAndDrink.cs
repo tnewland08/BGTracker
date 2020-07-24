@@ -10,13 +10,13 @@ namespace BGTracker.Data
 {
     public class FoodAndDrink
     {
-        [ForeignKey("ApplicationUser")]
+        [ForeignKey(nameof(ApplicationUser))]
         public string Id { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         [Key]
-        public int FoodId { get; set; }
+        public int ItemId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }

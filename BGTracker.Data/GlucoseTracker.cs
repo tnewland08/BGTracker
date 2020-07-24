@@ -10,7 +10,7 @@ namespace BGTracker.Data
 {
     public class GlucoseTracker
     {
-        [ForeignKey("ApplicationUser")]
+        [ForeignKey(nameof(ApplicationUser))]
         public string Id { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }

@@ -9,7 +9,7 @@ namespace BGTracker.Models.FoodAndDrinkModels
 {
     public class FoodAndDrinkListItem
     {
-        public int FoodId { get; set; }
+        public int ItemId { get; set; }
         public string Item { get; set; }
 
         [Display(Name = "Carbs per Serving")]

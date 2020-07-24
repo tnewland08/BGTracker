@@ -22,7 +22,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FoodId)
+            @Html.DisplayNameFor(model => model.ItemId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Item)
@@ -40,7 +40,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FoodId)
+                @Html.DisplayFor(modelItem => item.ItemId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Item)
@@ -52,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.ServingSize)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FoodId }) |
-                @Html.ActionLink("Details", "Detail", new { id = item.FoodId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FoodId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ItemId }) |
+                @Html.ActionLink("Details", "Detail", new { id = item.ItemId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ItemId })
             </td>
         </tr>
     }

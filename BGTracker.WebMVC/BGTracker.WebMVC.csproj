@@ -252,6 +252,7 @@
     <Content Include="Views\FoodAndDrink\Detail.cshtml" />
     <Content Include="Views\FoodAndDrink\Edit.cshtml" />
     <Content Include="Views\FoodAndDrink\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
