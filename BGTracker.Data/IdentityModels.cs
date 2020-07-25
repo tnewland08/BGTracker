@@ -23,6 +23,7 @@ namespace BGTracker.Data
 
         [Required]
         [Display(Name = "Date of Birth (MM/DD/YYYY")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
         [Required]

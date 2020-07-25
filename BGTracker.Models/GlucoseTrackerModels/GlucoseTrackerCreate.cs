@@ -11,6 +11,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
     {
         [Required]
         [Display(Name = "Date (MM/DD/YYYY)")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Required]

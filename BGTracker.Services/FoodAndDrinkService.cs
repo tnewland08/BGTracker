@@ -58,7 +58,8 @@ namespace BGTracker.Services
                                     ItemId = f.ItemId,
                                     Item = f.Item,
                                     CarbsPerServing = f.CarbsPerServing,
-                                    ServingSize = f.ServingSize
+                                    ServingSize = f.ServingSize,
+                                    Favorite = f.Favorite
                                 }
                         );
 

@@ -3,33 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - BG Tracker</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background: #05f">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle text" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("BG Tracker", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("BG Tracker", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", Style = "color:White;" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <ul class="nav navbar-nav" style="color: #ffffff">
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { Style = "color:White;" })</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Profile", "Index", "User")</li>
-                        <li>@Html.ActionLink("Add Blood Glucos Reading", "Index", "GlucoseTracker")</li>
-                        <li>@Html.ActionLink("Add Food or Drink", "Index", "FoodAndDrink")</li>
+                        <li>@Html.ActionLink("Profile", "Detail", "User", null, new { Style = "color:White;" })</li>
+                        <li>@Html.ActionLink("Add Blood Glucos Reading", "Create", "GlucoseTracker", null, new { Style = "color:White;" })</li>
+                        <li>@Html.ActionLink("Add Food or Drink", "Create", "FoodAndDrink", null, new { Style = "color:White;" })</li>
                     }                    
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { Style = "color:White;" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { Style = "color:White;" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,7 +39,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Todd Newland</p>
+            @Html.ActionLink("About", "About", "Home", null, new { Style = "color:Black;" })
+            @Html.ActionLink("Contact", "Contact", "Home", null, new { Style = "color:Black;" })
         </footer>
     </div>
 
