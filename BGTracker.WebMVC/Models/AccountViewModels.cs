@@ -91,6 +91,7 @@ namespace BGTracker.WebMVC.Models
 
         [Required]
         [Display(Name = "Date of Birth (MM/DD/YYYY)")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
         [Required]

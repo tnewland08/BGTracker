@@ -17,5 +17,7 @@ namespace BGTracker.Models.FoodAndDrinkModels
 
         [Display(Name ="Serving Size")]
         public string ServingSize { get; set; }
+
+        public bool Favorite { get; set; }
     }
 }

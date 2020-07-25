@@ -12,6 +12,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
         public int TrackerId { get; set; }
 
         [Display(Name = "Date (MM/DD/YYYY)")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Display(Name = "Blood Glucose")]
