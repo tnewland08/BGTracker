@@ -12,6 +12,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
         public int TrackerId { get; set; }
 
         [Display(Name = "Date (MM/DD/YYYY)")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Display(Name = "Blood Glucose")]
@@ -30,6 +31,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
         public decimal InsulinDose { get; set; }
 
         [Display(Name = "Time")]
+        [DataType(DataType.Time)]
         public TimeSpan TimeOfDose { get; set; }
 
 

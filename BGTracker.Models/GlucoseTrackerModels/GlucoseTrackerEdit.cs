@@ -31,6 +31,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
         public decimal InsulinDose { get; set; }
 
         [Display(Name = "Time")]
+        [DataType(DataType.Time)]
         public TimeSpan TimeOfDose { get; set; }
     }
 }

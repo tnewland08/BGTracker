@@ -48,6 +48,7 @@ namespace BGTracker.Data
 
         [Required]
         [Display(Name ="Time")]
+        [DataType(DataType.Time)]
         public TimeSpan TimeOfDose { get; set; }
 
         [Required]
