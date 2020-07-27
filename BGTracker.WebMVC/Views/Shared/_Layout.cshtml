@@ -21,15 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="color: #ffffff">
-                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { Style = "color:White;" })</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Profile", "Detail", "User", null, new { Style = "color:White;" })</li>
-                        <li>@Html.ActionLink("Add Blood Glucos Reading", "Create", "GlucoseTracker", null, new { Style = "color:White;" })</li>
-                        <li>@Html.ActionLink("Add Food or Drink", "Create", "FoodAndDrink", null, new { Style = "color:White;" })</li>
-                    }                    
                     <li>@Html.ActionLink("About", "About", "Home", null, new { Style = "color:White;" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { Style = "color:White;" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("View Blood Glucose History", "Index", "GlucoseTracker", null, new { Style = "color:White;" })</li>
+                        <li>@Html.ActionLink("Food and Drink List", "Index", "FoodAndDrink", null, new { Style = "color:White;" })</li>
+                    }                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -36,6 +36,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
 
         [Required]
         [Display(Name = "Time")]
+        [DataType(DataType.Time)]
         public TimeSpan TimeOfDose { get; set; }
     }
 }
