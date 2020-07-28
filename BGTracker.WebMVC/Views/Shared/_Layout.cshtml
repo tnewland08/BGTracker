@@ -27,7 +27,7 @@
                     {
                         <li>@Html.ActionLink("View Blood Glucose History", "Index", "GlucoseTracker", null, new { Style = "color:White;" })</li>
                         <li>@Html.ActionLink("Food and Drink List", "Index", "FoodAndDrink", null, new { Style = "color:White;" })</li>
-                    }                    
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -36,10 +36,16 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Todd Newland</p>
-            @Html.ActionLink("About", "About", "Home", null, new { Style = "color:Black;" })
-            @Html.ActionLink("Contact", "Contact", "Home", null, new { Style = "color:Black;" })
+        <footer class="row">
+            <div class="col-md-4">
+                <p>&copy; @DateTime.Now.Year - Todd Newland</p>
+            </div>
+            <div class="col-md-offset-4">
+                <p style="text-align:right">
+                    @Html.ActionLink("About", "About", "Home", null, new { Style = "color:Black;" }) |
+                    @Html.ActionLink("Contact", "Contact", "Home", null, new { Style = "color:Black;" })
+                </p>
+            </div>
         </footer>
     </div>
 

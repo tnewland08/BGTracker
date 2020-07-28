@@ -32,7 +32,7 @@ namespace BGTracker.Models.GlucoseTrackerModels
 
         [Display(Name = "Time")]
         [DataType(DataType.Time)]
-        public TimeSpan TimeOfDose { get; set; }
+        public DateTimeOffset TimeOfDose { get; set; }
 
 
         [Display(Name ="Created")]
