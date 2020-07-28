@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>GlucoseTrackerCreate</h4>
         <hr />
@@ -34,7 +34,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CorrectionDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CorrectionDose, new { htmlAttributes = new { @class = "form-control" } })
+                <input class="dose" type="text" name="CorrectionDose" />
+                @*@Html.EditorFor(model => model.CorrectionDose, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.CorrectionDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +51,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FoodDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FoodDose, new { htmlAttributes = new { @class = "form-control" } })
+                <input class="dose" type="text" name="FoodDose" />
+                @*@Html.EditorFor(model => model.FoodDose, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.FoodDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +60,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.InsulinDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.InsulinDose, new { htmlAttributes = new { @class = "form-control" } })
+                <span id="totalDose">0</span>
+                @*@Html.EditorFor(model => model.InsulinDose, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.InsulinDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,9 +83,49 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Cancel", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+
+        $(".dose").each(function () {
+
+            $(this).keyup(function () {
+                calculateSum();
+            });
+        });
+    });
+
+    function calculateSum() {
+
+        var sum = 0;
+        $(".dose").each(function () {
+
+            if (!isNaN(this.value) && this.value.length != 0) {
+                sum += parseFloat(this.value);
+            }
+        });
+
+        $("#totalDose").html(sum.toFixed(2));
+    }
+        //$(document).ready(function () {
+        //    ("CorrectionDose, FoodDose").on("keydown keyup", function () {
+        //        sum();
+        //    });
+        //});
+        //function sum() {
+        //    var num1 = document.getElementById('CorrectionDose').value;
+        //    var num2 = document.getElementById('FoodDose').value;
+        //    var result = parseInt(num1) + parseInt(num2);
+        //    if (!isNaN(result)) {
+        //        document.getElementById('InsulinDose').value = result;
+        //    }
+        //}
+ </script>
+
 }

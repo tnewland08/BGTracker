@@ -63,7 +63,6 @@ namespace BGTracker.Data
             return new ApplicationDbContext();
         }
 
-        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<GlucoseTracker> Glucose { get; set; }
         public DbSet<FoodAndDrink> FoodAndDrinks { get; set; }
 

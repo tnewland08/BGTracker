@@ -5,7 +5,17 @@
 <div class="jumbotron">
     <h1 style="text-align:center">BG Tracker</h1>
     <p class="lead" style="text-align:center">A simple and easy way to manage your daily blood glucose levels.</p>
-    <p class="btn btn-primary btn-lg">@Html.ActionLink("Register/Login", "Login", "Account", null, new { Style = "color:White" })</p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-offset-4 col-md-2">
+                <p class="btn btn-primary btn-lg">@Html.ActionLink("Register", "Register", "Account", null, new { Style = "color:White" })</p>
+            </div>
+            <div class="col-md-2">
+                <p class="btn btn-primary btn-lg">@Html.ActionLink("Log In", "Login", "Account", null, new { Style = "color:White" })</p>
+            </div>
+        </div>
+    }
     @if (User.Identity.IsAuthenticated)
     {
         <div class="row">
