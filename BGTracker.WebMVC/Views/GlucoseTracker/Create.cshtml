@@ -34,8 +34,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CorrectionDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="dose" type="text" name="CorrectionDose" />
-                @*@Html.EditorFor(model => model.CorrectionDose, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*<input class="dose" id="dose1" type="text" name="CorrectionDose" />*@
+                @Html.EditorFor(model => model.CorrectionDose, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CorrectionDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,8 +51,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FoodDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="dose" type="text" name="FoodDose" />
-                @*@Html.EditorFor(model => model.FoodDose, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*<input class="dose" id="dose2" type="text" name="FoodDose" />*@
+                @Html.EditorFor(model => model.FoodDose, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FoodDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,8 +60,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.InsulinDose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <span id="totalDose">0</span>
-                @*@Html.EditorFor(model => model.InsulinDose, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*<span id="totalDose">0</span>*@
+                @Html.EditorFor(model => model.InsulinDose, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.InsulinDose, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -90,42 +90,52 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-<script language="javascript" type="text/javascript">
-    $(document).ready(function () {
-
-        $(".dose").each(function () {
-
-            $(this).keyup(function () {
-                calculateSum();
-            });
-        });
-    });
-
-    function calculateSum() {
-
-        var sum = 0;
-        $(".dose").each(function () {
-
-            if (!isNaN(this.value) && this.value.length != 0) {
-                sum += parseFloat(this.value);
-            }
-        });
-
-        $("#totalDose").html(sum.toFixed(2));
-    }
-        //$(document).ready(function () {
-        //    ("#dose1, #dose2").on("keydown keyup", function () {
-        //        sum();
-        //    });
-        //});
+    <script language="javascript" type="text/javascript">
         //function sum() {
-        //    var num1 = document.getElementById('#dose1').value;
-        //    var num2 = document.getElementById('#dose2').value;
-        //    var result = parseInt(num1) + parseInt(num2);
-        //    if (!isNaN(result)) {
-        //        document.getElementById('#totalDose').value = result;
-        //    }
+        //    var value1 = parseInt(document.getElementById("dose1").value);
+        //    var value2 = parseInt(document.getElementById("dose2").value);
+        //    var sum = value1 + value2;
+        //    document.getElementById("totalDose").value = sum;
         //}
- </script>
+
+
+            //$(document).ready(function () {
+
+            //    $(".dose").each(function () {
+
+            //        $(this).keyup(function () {
+            //            calculateSum();
+            //        });
+            //    });
+            //});
+
+            //function calculateSum() {
+
+            //    var sum = 0;
+            //    $(".dose").each(function () {
+
+            //        if (!isNaN(this.value) && this.value.length != 0) {
+            //            sum += parseFloat(this.value);
+            //        }
+            //    });
+
+            //    $("#totalDose").html(sum.toFixed(2));
+            //}
+
+
+                //$(document).ready(function () {
+                //    ("#dose1, #dose2").on("keydown keyup", function () {
+                //        sum();
+                //    });
+                //});
+                //function sum() {
+                //    var num1 = document.getElementById('#dose1').value;
+                //    var num2 = document.getElementById('#dose2').value;
+                //    var result = parseInt(num1) + parseInt(num2);
+                //    if (!isNaN(result)) {
+                //        document.getElementById('#totalDose').value = result;
+                //    }
+                //}
+    </script>
 
 }
